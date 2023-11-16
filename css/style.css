@@ -33,9 +33,11 @@ header .sx {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
   height: 50px;
-  width: 50px;
+  width: 80px;
+  background-color: #004643;
+  border-radius: 10px;
+  color: #e8e4e6;
 }
 
 header .dx {

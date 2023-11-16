@@ -59,6 +59,8 @@ function cellaCreaColora(className, quantita) {
           haiVinto = true;
         }
       }
+      const punti = document.querySelector('.punti');
+      punti.innerHTML = `${arrayWin.length}`;
     });
   }
 }
