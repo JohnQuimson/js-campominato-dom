@@ -26,6 +26,7 @@ function cellaCreaColora(className, quantita) {
   for (let j = 0; j < domCelle.length; j++) {
     domCelle[j].addEventListener('click', function () {
       console.log(`Hai selezionato la cella: ${j + 1}`);
+      //Se j è contenuto nell arrayBombe, aggiunge class bomba
       if (arrayBombe.includes(j + 1)) {
         domCelle[j].classList.add('bomba');
         console.log(`Sei esploso`);
@@ -48,7 +49,6 @@ function genBombe(quantita) {
 
 /* DEMO */
 function genBombeDemo(quantita) {
-  const arrayBombe = [];
   while (arrayBombe.length < 2) {
     const numBomba = Number(Math.floor(Math.random() * quantita) + 1);
     if (!arrayBombe.includes(numBomba)) {
@@ -80,18 +80,16 @@ function campoMinato() {
       genBombe(100);
       /* IMPLEMENTAZIONE ARRAY BOMBE */
 
-      /* IMPLEMENTAZIONE PARAGONE BOMBE */
-
-      /* IMPLEMENTAZIONE PARAGONE BOMBE */
-
       console.log('Difficoltà: Facile');
       break;
     case 'normale':
       cellaCreaColora('cell-normale', 81);
+      genBombe(81);
       console.log('Difficoltà: Normale');
       break;
     case 'difficile':
       cellaCreaColora('cell-difficile', 49);
+      genBombe(49);
       console.log('Difficoltà: Difficile');
       break;
     case 'prova':
