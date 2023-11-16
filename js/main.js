@@ -57,6 +57,10 @@ function campoMinato() {
       cellaCreaColora('cell-difficile', 49);
       console.log('Difficoltà: Difficile');
       break;
+    case 'prova':
+      cellaCreaColora('cell-prova', 4);
+      console.log('Difficoltà: Difficile');
+      break;
     default:
       console.log('Errore');
       break;

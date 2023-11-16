@@ -109,8 +109,13 @@ main {
   border: 1px solid black;
 }
 
-.cell:hover {
-  cursor: pointer;
+.cell-prova {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% / 2);
+  width: calc(100% / 2);
+  border: 1px solid black;
 }
 
 .active-cell {
