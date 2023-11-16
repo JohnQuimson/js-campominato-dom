@@ -29,6 +29,15 @@ header .sx {
   gap: 20px;
 }
 
+.punteggio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
 header .dx {
   display: flex;
   align-items: center;
@@ -89,6 +98,7 @@ main {
   height: calc(100% / 10);
   width: calc(100% / 10);
   border: 1px solid black;
+  border-radius: 3px;
 }
 
 .cell-normale {
@@ -98,6 +108,7 @@ main {
   height: calc(100% / 9);
   width: calc(100% / 9);
   border: 1px solid black;
+  border-radius: 3px;
 }
 
 .cell-difficile {
@@ -107,6 +118,7 @@ main {
   height: calc(100% / 7);
   width: calc(100% / 7);
   border: 1px solid black;
+  border-radius: 3px;
 }
 
 .cell-prova {
@@ -116,6 +128,7 @@ main {
   height: calc(100% / 2);
   width: calc(100% / 2);
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .active-cell {

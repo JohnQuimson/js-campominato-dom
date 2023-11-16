@@ -1,5 +1,11 @@
 'use strict';
 
+const arrayWin = [];
+let haiPerso = false;
+let haiVinto = false;
+//Array in cui andranno gli indici delle bombe
+let arrayBombe = [];
+
 //Funzione che crea gli elementi
 function myCreateElement(tag, className, content) {
   const element = document.createElement(tag);
@@ -11,6 +17,7 @@ function myCreateElement(tag, className, content) {
 //Funzione che mi serve per creare le celle e far si che si colori quelle cliccate
 function cellaCreaColora(className, quantita) {
   const fragment = document.createDocumentFragment();
+
   /*CICLO FOR CHE RIPRENDE LA FUNZIONE PER CREARE 100 ELEMENTI */
   for (let i = 1; i <= quantita; i++) {
     const myElement = myCreateElement('div', className, i);
@@ -25,17 +32,38 @@ function cellaCreaColora(className, quantita) {
   //Assegno a ogni elemento del node list, un eventListener. che in caso di click aggiunge la classe active-cell
   for (let j = 0; j < domCelle.length; j++) {
     domCelle[j].addEventListener('click', function () {
+      // verifico se ho perso, inizialmente è false, quindi la prima azione la posso fare, se al secondo click, prendo una bomba, haiPerso diventa true, quindi questo if è true ed esce dalla funzione
+      if (haiPerso) {
+        return;
+      }
+
+      if (haiVinto) {
+        return;
+      }
+
       console.log(`Hai selezionato la cella: ${j + 1}`);
       //Se j è contenuto nell arrayBombe, aggiunge class bomba
       if (arrayBombe.includes(j + 1)) {
         domCelle[j].classList.add('bomba');
         console.log(`Sei esploso`);
+        //se si verifica la condizione, haiPerso diventa true e sopra fa finire il programma
+        haiPerso = true;
+      } else {
+        domCelle[j].classList.add('active-cell');
+        if (!arrayWin.includes(domCelle[j])) {
+          arrayWin.push(domCelle[j]);
+        }
+
+        if (arrayWin.length === domCelle.length - arrayBombe.length) {
+          console.log(`Hai vinto!`);
+          haiVinto = true;
+        }
       }
-      domCelle[j].classList.add('active-cell');
     });
   }
 }
-const arrayBombe = [];
+
+//funzione che genera n numeri casuali e li inserisce in arrayBombe
 function genBombe(quantita) {
   while (arrayBombe.length < 16) {
     const numBomba = Number(Math.floor(Math.random() * quantita) + 1);
@@ -43,11 +71,9 @@ function genBombe(quantita) {
       arrayBombe.push(numBomba);
     }
   }
-  console.log(`Le bombe sono:`);
-  console.log(arrayBombe);
+  console.log(`Le bombe sono: ${arrayBombe}`);
 }
 
-/* DEMO */
 function genBombeDemo(quantita) {
   while (arrayBombe.length < 2) {
     const numBomba = Number(Math.floor(Math.random() * quantita) + 1);
@@ -55,8 +81,7 @@ function genBombeDemo(quantita) {
       arrayBombe.push(numBomba);
     }
   }
-  console.log(`Le bombe sono:`);
-  console.log(arrayBombe);
+  console.log(`Le bombe sono: ${arrayBombe}`);
 }
 
 function campoMinato() {
@@ -72,14 +97,13 @@ function campoMinato() {
   //Ogni volta che faccio 'click', elimino tutto il contenuto in .board
   board.innerHTML = '';
 
+  //Ogni volta che faccio 'click', elimino tutto il contenuto dell'array
+  arrayBombe = [];
+
   switch (valoreSelezionato) {
     case 'facile':
       cellaCreaColora('cell-facile', 100);
-
-      /* IMPLEMENTAZIONE ARRAY BOMBE */
       genBombe(100);
-      /* IMPLEMENTAZIONE ARRAY BOMBE */
-
       console.log('Difficoltà: Facile');
       break;
     case 'normale':
