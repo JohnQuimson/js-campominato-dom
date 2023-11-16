@@ -26,19 +26,23 @@ function cellaCreaColora(className, quantita) {
   for (let j = 0; j < domCelle.length; j++) {
     domCelle[j].addEventListener('click', function () {
       console.log(`Hai selezionato la cella: ${j + 1}`);
+      if (arrayBombe.includes(j + 1)) {
+        domCelle[j].classList.add('bomba');
+        console.log(`Sei esploso`);
+      }
       domCelle[j].classList.add('active-cell');
     });
   }
 }
-
+const arrayBombe = [];
 function genBombe(quantita) {
-  const arrayBombe = [];
   while (arrayBombe.length < 16) {
     const numBomba = Number(Math.floor(Math.random() * quantita) + 1);
     if (!arrayBombe.includes(numBomba)) {
       arrayBombe.push(numBomba);
     }
   }
+  console.log(`Le bombe sono:`);
   console.log(arrayBombe);
 }
 
@@ -51,6 +55,7 @@ function genBombeDemo(quantita) {
       arrayBombe.push(numBomba);
     }
   }
+  console.log(`Le bombe sono:`);
   console.log(arrayBombe);
 }
 
