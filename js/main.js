@@ -46,6 +46,12 @@ function cellaCreaColora(className, quantita) {
       if (arrayBombe.includes(j + 1)) {
         domCelle[j].classList.add('bomba');
         console.log(`Sei esploso`);
+
+        /* TENTATIVO COLORE TUTTE BOMBE
+        for (let x = 0; x < arrayBombe.length; x++) {
+          domCelle[j].classList.add('bomba');
+        }
+        */
         //se si verifica la condizione, haiPerso diventa true e sopra fa finire il programma
         haiPerso = true;
       } else {

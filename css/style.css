@@ -72,6 +72,10 @@ main {
   justify-content: center;
 }
 
+.initial-main {
+  margin: 0 auto;
+}
+
 .initial-main h3,
 .initial-main h2 {
   color: #e8e4e6;
@@ -82,6 +86,17 @@ main {
 }
 .initial-main h2 {
   color: #e16162;
+}
+
+.cont-main {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.cont-main h3 {
+  font-size: 40px;
 }
 
 .board {
@@ -138,7 +153,7 @@ main {
 }
 
 .bomba {
-  background-color: red;
+  background-color: #e45858;
 }
 
 /*
@@ -156,6 +171,11 @@ footer span {
   color: red;
 }
 
+/*
+--------------
+COMMON
+-------------- 
+*/
 .hidden {
   display: none;
 }
