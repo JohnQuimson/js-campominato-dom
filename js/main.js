@@ -42,6 +42,18 @@ function genBombe(quantita) {
   console.log(arrayBombe);
 }
 
+/* DEMO */
+function genBombeDemo(quantita) {
+  const arrayBombe = [];
+  while (arrayBombe.length < 2) {
+    const numBomba = Number(Math.floor(Math.random() * quantita) + 1);
+    if (!arrayBombe.includes(numBomba)) {
+      arrayBombe.push(numBomba);
+    }
+  }
+  console.log(arrayBombe);
+}
+
 function campoMinato() {
   // Prendo il valore
   const valoreSelezionato = selectDifficolta.value;
@@ -79,6 +91,7 @@ function campoMinato() {
       break;
     case 'prova':
       cellaCreaColora('cell-prova', 4);
+      genBombeDemo(4);
       console.log('Demo PROVA');
       break;
     default:
