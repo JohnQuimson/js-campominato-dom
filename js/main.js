@@ -31,6 +31,18 @@ function cellaCreaColora(className, quantita) {
   }
 }
 
+// function genBombe(difficolta) {
+//   const nCelle = 100; //in base alla difficoltà
+//   const maxBombe = 16;
+//   const arrayBombe = []; //Array contenente le bombeN
+//   while (arrayBombe.length < maxBombe) {
+//     const numBomba = Number(Math.floor(Math.random() * nCelle) + 1);
+//     if (!arrayBombe.includes(numBomba)) {
+//       arrayBombe.push(numBomba);
+//     }
+//   }
+// }
+
 function campoMinato() {
   // Prendo il valore
   const valoreSelezionato = selectDifficolta.value;
@@ -47,6 +59,18 @@ function campoMinato() {
   switch (valoreSelezionato) {
     case 'facile':
       cellaCreaColora('cell-facile', 100);
+
+      /* IMPLEMENTAZIONE ARRAY BOMBE */
+      const arrayBombe = [];
+      while (arrayBombe.length < 16) {
+        const numBomba = Number(Math.floor(Math.random() * 100) + 1);
+        if (!arrayBombe.includes(numBomba)) {
+          arrayBombe.push(numBomba);
+        }
+      }
+      console.log(arrayBombe);
+      /* IMPLEMENTAZIONE ARRAY BOMBE */
+
       console.log('Difficoltà: Facile');
       break;
     case 'normale':
@@ -59,7 +83,7 @@ function campoMinato() {
       break;
     case 'prova':
       cellaCreaColora('cell-prova', 4);
-      console.log('Difficoltà: Difficile');
+      console.log('Demo PROVA');
       break;
     default:
       console.log('Errore');
