@@ -31,17 +31,16 @@ function cellaCreaColora(className, quantita) {
   }
 }
 
-// function genBombe(difficolta) {
-//   const nCelle = 100; //in base alla difficoltà
-//   const maxBombe = 16;
-//   const arrayBombe = []; //Array contenente le bombeN
-//   while (arrayBombe.length < maxBombe) {
-//     const numBomba = Number(Math.floor(Math.random() * nCelle) + 1);
-//     if (!arrayBombe.includes(numBomba)) {
-//       arrayBombe.push(numBomba);
-//     }
-//   }
-// }
+function genBombe(quantita) {
+  const arrayBombe = [];
+  while (arrayBombe.length < 16) {
+    const numBomba = Number(Math.floor(Math.random() * quantita) + 1);
+    if (!arrayBombe.includes(numBomba)) {
+      arrayBombe.push(numBomba);
+    }
+  }
+  console.log(arrayBombe);
+}
 
 function campoMinato() {
   // Prendo il valore
@@ -61,15 +60,12 @@ function campoMinato() {
       cellaCreaColora('cell-facile', 100);
 
       /* IMPLEMENTAZIONE ARRAY BOMBE */
-      const arrayBombe = [];
-      while (arrayBombe.length < 16) {
-        const numBomba = Number(Math.floor(Math.random() * 100) + 1);
-        if (!arrayBombe.includes(numBomba)) {
-          arrayBombe.push(numBomba);
-        }
-      }
-      console.log(arrayBombe);
+      genBombe(100);
       /* IMPLEMENTAZIONE ARRAY BOMBE */
+
+      /* IMPLEMENTAZIONE PARAGONE BOMBE */
+
+      /* IMPLEMENTAZIONE PARAGONE BOMBE */
 
       console.log('Difficoltà: Facile');
       break;
